@@ -12,10 +12,12 @@ import java.util.Properties;
 public class PropertyUtil {
     private static Properties properties;
 
+    private static final String PROPERTIES_RESOURCE = "application.yml";
+
     static {
         InputStream resource = null;
         try {
-            resource = PropertyUtil.class.getClassLoader().getResourceAsStream("application.yml");
+            resource = PropertyUtil.class.getClassLoader().getResourceAsStream(PROPERTIES_RESOURCE);
             properties.load(resource);
         } catch (IOException e) {
             throw new GeneratorException(e.getMessage(), e);
