@@ -1,4 +1,4 @@
-package club.usql.mybatis.generator.handler;
+package club.usql.mybatis.generator.handler.auto;
 
 import club.usql.exception.EncryptException;
 import club.usql.mybatis.generator.type.AESString;
