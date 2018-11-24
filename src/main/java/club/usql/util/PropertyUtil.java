@@ -10,7 +10,7 @@ import java.util.Properties;
  * @author far.liu
  */
 public class PropertyUtil {
-    private static Properties properties;
+    private static Properties properties = new Properties();
 
     private static final String PROPERTIES_RESOURCE = "application.yml";
 
