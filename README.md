@@ -45,8 +45,19 @@ TODO
     <columnOverride column="MOBILE_PHONE" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
 </table>
 ```
-
-
-TODO
+2. 你可以使用AESString，那么不用指定列，mybatis会自动扫描这个类型的字段进行加密解密，如下
+```
+<table tableName="enc_test" domainObjectName="EncTest" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+    <columnOverride column="CERT_NO" javaType="club.usql.mybatis.generator.type.AESString" jdbcType="VARCHAR" />
+    <columnOverride column="MOBILE_PHONE" javaType="club.usql.mybatis.generator.type.AESString" jdbcType="VARCHAR" />
+</table>
+```
+不过，还需要在应用配置application.yml中配置typeHandler
+```
+mybatis:
+  type-handlers-package: club.usql.mybatis.generator.handler.auto
+```
 ### 已支持加密算法
 AES 
