@@ -39,7 +39,7 @@ pom.xml中对mybatis-generator-maven-plugin插件添加依赖
 		</plugins>
 	</build>
 ```
-generatorConfig.xml中添加plugin
+generatorConfig.xml中添加plugin，具体请参照resources下的generatorConfig文件
 ```
 <plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
 ```
