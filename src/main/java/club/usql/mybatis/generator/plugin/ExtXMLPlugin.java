@@ -1,17 +1,14 @@
 package club.usql.mybatis.generator.plugin;
 
-import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.GeneratedXmlFile;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.ShellRunner;
-import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
 import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.JavaVisibility;
 import org.mybatis.generator.api.dom.java.Method;
-import org.mybatis.generator.api.dom.java.Parameter;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.Document;
@@ -101,49 +98,13 @@ public class ExtXMLPlugin extends PluginAdapter {
     }
 
     @Override
-    public boolean sqlMapSelectByPrimaryKeyElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-        return super.sqlMapSelectByPrimaryKeyElementGenerated(element, introspectedTable);
-    }
-
-    @Override
-    public boolean sqlMapUpdateByPrimaryKeySelectiveElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-        return super.sqlMapUpdateByPrimaryKeySelectiveElementGenerated(element, introspectedTable);
-    }
-
-    @Override
-    public boolean sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-        return super.sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(element, introspectedTable);
-    }
-
-    @Override
     public boolean sqlMapDeleteByPrimaryKeyElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
         return super.sqlMapDeleteByPrimaryKeyElementGenerated(element, introspectedTable);
-    }
-
-    @SuppressWarnings("AlibabaMethodTooLong")
-    @Override
-    public boolean sqlMapInsertSelectiveElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-        return super.sqlMapInsertSelectiveElementGenerated(element, introspectedTable);
     }
 
     @Override
     public boolean clientDeleteByPrimaryKeyMethodGenerated(Method method, Interface interfaze, IntrospectedTable introspectedTable) {
         return super.clientDeleteByPrimaryKeyMethodGenerated(method, interfaze, introspectedTable);
-    }
-
-    @Override
-    public boolean clientGenerated(Interface interfaze, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        return super.clientGenerated(interfaze, topLevelClass, introspectedTable);
-    }
-
-    @Override
-    public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-        return super.sqlMapSelectByExampleWithoutBLOBsElementGenerated(element, introspectedTable);
-    }
-
-    @Override
-    public boolean sqlMapCountByExampleElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-        return super.sqlMapCountByExampleElementGenerated(element, introspectedTable);
     }
 
     @Override
