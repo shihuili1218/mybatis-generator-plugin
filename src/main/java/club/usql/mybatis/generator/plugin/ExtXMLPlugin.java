@@ -39,36 +39,7 @@ public class ExtXMLPlugin extends PluginAdapter {
 
     @Override
     public boolean modelExampleClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        addStringField(topLevelClass, introspectedTable, "fullOrgPath");
-        addStringField(topLevelClass, introspectedTable, "owner");
         return super.modelExampleClassGenerated(topLevelClass, introspectedTable);
-    }
-
-    private void addStringField(TopLevelClass topLevelClass, IntrospectedTable introspectedTable, String name) {
-        topLevelClass.addImportedType(new FullyQualifiedJavaType("java.lang.String"));
-        CommentGenerator commentGenerator = context.getCommentGenerator();
-        Field field = new Field();
-        field.setVisibility(JavaVisibility.PROTECTED);
-        field.setType(new FullyQualifiedJavaType("java.lang.String"));
-        field.setName(name);
-        commentGenerator.addFieldComment(field, introspectedTable);
-        topLevelClass.addField(field);
-        char c = name.charAt(0);
-        String camel = Character.toUpperCase(c) + name.substring(1);
-        Method method = new Method();
-        method.setVisibility(JavaVisibility.PUBLIC);
-        method.setName("set" + camel);
-        method.addParameter(new Parameter(new FullyQualifiedJavaType("java.lang.String"), name));
-        method.addBodyLine("" + name + "=" + name + ";");
-        commentGenerator.addGeneralMethodComment(method, introspectedTable);
-        topLevelClass.addMethod(method);
-        method = new Method();
-        method.setVisibility(JavaVisibility.PUBLIC);
-        method.setReturnType(new FullyQualifiedJavaType("java.lang.String"));
-        method.setName("get" + camel);
-        method.addBodyLine("return " + name + ";");
-        commentGenerator.addGeneralMethodComment(method, introspectedTable);
-        topLevelClass.addMethod(method);
     }
 
     @Override
@@ -102,7 +73,7 @@ public class ExtXMLPlugin extends PluginAdapter {
 
                 while (iteratorAttr.hasNext()) {
                     Attribute attribute = (Attribute) iteratorAttr.next();
-                    if ("insertSelective".equals(attribute.getValue())) {
+                    if ("insertSelective".equals(attribute.getValue()) || "insert".equals(attribute.getValue())) {
                         oldElement = xmlElement;
                         newElement = xmlElement;
                         xmlElement.addAttribute(new Attribute("useGeneratedKeys", "true"));
@@ -141,7 +112,6 @@ public class ExtXMLPlugin extends PluginAdapter {
 
     @Override
     public boolean sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
-
         return super.sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(element, introspectedTable);
     }
 
