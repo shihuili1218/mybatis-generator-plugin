@@ -183,9 +183,64 @@ public class ExtXMLPlugin extends PluginAdapter {
         return true;
     }
 
-    public static void main(String[] args) {
-        String config = ExtXMLPlugin.class.getClassLoader().getResource("generatorConfig.xml").getFile();
-        String[] arg = new String[]{"-configfile", config};
-        ShellRunner.main(arg);
+
+    @Override
+    public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+        return super.modelBaseRecordClassGenerated(topLevelClass, introspectedTable);
+    }
+
+    @Override
+    public boolean modelRecordWithBLOBsClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+        return super.modelRecordWithBLOBsClassGenerated(topLevelClass, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapResultMapWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapResultMapWithoutBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapResultMapWithBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapResultMapWithBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapSelectByExampleWithoutBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapSelectByExampleWithBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapSelectByExampleWithBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapUpdateByExampleWithBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapUpdateByExampleWithBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapUpdateByExampleWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapUpdateByExampleWithoutBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapUpdateByPrimaryKeyWithBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapUpdateByPrimaryKeyWithBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapBaseColumnListElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapBaseColumnListElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapBlobColumnListElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapBlobColumnListElementGenerated(element, introspectedTable);
     }
 }
