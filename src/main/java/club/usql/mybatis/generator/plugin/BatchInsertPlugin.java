@@ -31,6 +31,7 @@ import java.util.TreeSet;
  */
 public class BatchInsertPlugin extends PluginAdapter {
     private static final String METHOD_BATCH_INSERT = "batchInsert";
+    public static final String PARAM_ANNO_RESOURCE = "org.apache.ibatis.annotations.Param";
     private CommentGenerator commentGenerator ;
 
     /**
@@ -67,8 +68,10 @@ public class BatchInsertPlugin extends PluginAdapter {
                 JavaVisibility.DEFAULT,
                 FullyQualifiedJavaType.getIntInstance(),
                 new Parameter(listType, "list", "@Param(\"list\")")
-
         );
+        FullyQualifiedJavaType paramType = new FullyQualifiedJavaType(PARAM_ANNO_RESOURCE);
+        interfaze.addImportedType(paramType);
+
         commentGenerator.addGeneralMethodComment(mBatchInsert, introspectedTable);
         // interface 增加方法
         addMethodWithBestPosition(mBatchInsert, interfaze.getMethods());
