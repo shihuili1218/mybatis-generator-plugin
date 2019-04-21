@@ -1,10 +1,11 @@
 # mybatis-generator-plugin
 
-## 生成规范定义
+## 已增强的功能
 1. 自动增加@Mapper注解
 2. 多生成一个以Ext结尾的Mapper类和xml文件，用于写生成的sql以为的sql语句。这两个文件不会因为重新生成而覆盖
 3. insert和insertSelective方法添加`useGeneratedKeys="true" keyProperty="id"`
-4. 不会生成BLOBs的java对象，但是SQL中会拆出BLOBS字段，不影响性能查询。TODO
+4. 增加batchInsert方法，批量插入。
+5. 不会生成BLOBs的java对象，但是SQL中会拆出BLOBS字段，不影响性能查询。TODO
 
 ### 使用方式
 pom.xml中对mybatis-generator-maven-plugin插件添加依赖
@@ -44,11 +45,11 @@ generatorConfig.xml中添加plugin，具体请参照resources下的generatorConf
 <plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
 ```
 
-## 数据库加密
+### 数据库加密
 该模块用于，对数据敏感数据进行加密，如用户证件号，手机号等。
 可在写入和更新数据库时对指定的列进行加密，在查询时对指定的列解密。
 
-### 使用方式
+#### 使用方式
 pom.xml
 ```
 <dependency>
@@ -108,5 +109,5 @@ pom.xml
 mybatis:
   type-handlers-package: club.usql.mybatis.generator.handler.auto
 ```
-### 已支持加密算法
+#### 已支持加密算法
 AES 
