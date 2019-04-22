@@ -2,7 +2,7 @@
 
 ## 已增强的功能
 1. 自动增加@Mapper注解
-2. 多生成一个以Ext结尾的Mapper类和xml文件，用于写生成的sql以为的sql语句。这两个文件不会因为重新生成而覆盖
+2. 多生成一个以Ext结尾的Mapper类和xml文件，用于写生成的sql以外的sql语句。这两个文件不会因为重新生成而覆盖
 3. insert和insertSelective方法添加`useGeneratedKeys="true" keyProperty="id"`
 4. 增加batchInsert方法，批量插入。
 5. 不会生成BLOBs的java对象，但是SQL中会拆出BLOBS字段，不影响性能查询。TODO
