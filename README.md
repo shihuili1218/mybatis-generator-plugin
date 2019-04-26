@@ -1,6 +1,7 @@
 # mybatis-generator-plugin
 
 ## 已增强的功能
+0. 敏感信息自动加密
 1. 自动增加@Mapper注解
 2. 多生成一个以Ext结尾的Mapper类和xml文件，用于写生成的sql以外的sql语句。这两个文件不会因为重新生成而覆盖
 3. insert和insertSelective方法添加`useGeneratedKeys="true" keyProperty="id"`
