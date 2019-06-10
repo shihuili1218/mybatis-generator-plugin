@@ -8,6 +8,7 @@
 4. 增加batchInsert方法，批量插入。
 5. 不会生成BLOBs的java对象，但是SQL中会拆出BLOBS字段，不影响性能查询。TODO
 
+
 ### 使用方式
 pom.xml中对mybatis-generator-maven-plugin插件添加依赖
 ```
@@ -40,25 +41,35 @@ pom.xml中对mybatis-generator-maven-plugin插件添加依赖
 			</plugin>
 		</plugins>
 	</build>
+	
+	<dependency>
+	    <groupId>club.usql</groupId>
+	    <artifactId>mybatis-generator-plugin</artifactId>
+	    <version>1.0-SNAPSHOT</version>
+	</dependency>
 ```
-generatorConfig.xml中添加plugin，具体请参照resources下的generatorConfig文件
+generatorConfig.xml中添加plugin、或者在对应的列加上typeHandler，具体请参照resources下的generatorConfig文件
+```
+<plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
+
+<table tableName="enc_test" domainObjectName="EncTest" enableCountByExample="false"
+       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+       selectByExampleQueryId="false">
+    <columnOverride column="CERT_NO" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
+    <columnOverride column="MOBILE_PHONE" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
+</table>
+```
+
+### 插件使用方式
+在generatorConfig.xml中添加对应plgin，就可以生效
 ```
 <plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
 ```
 
-### 数据库加密
+### 数据库加密使用方式
 该模块用于，对数据敏感数据进行加密，如用户证件号，手机号等。
 可在写入和更新数据库时对指定的列进行加密，在查询时对指定的列解密。
 
-#### 使用方式
-pom.xml
-```
-<dependency>
-    <groupId>club.usql</groupId>
-    <artifactId>mybatis-generator-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
-</dependency>
-```
 以下以AES为例，具体代码可见AESCryptTypeHandler。
 1. 单独指定列
 在查询的resultMap中指定某一列，查询时可解密，如下：
