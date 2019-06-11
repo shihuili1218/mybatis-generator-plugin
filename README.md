@@ -122,4 +122,4 @@ mybatis:
   type-handlers-package: club.usql.mybatis.generator.handler.auto
 ```
 #### 已支持加密算法
-AES 
+AES-CBC-PKCS5Padding
