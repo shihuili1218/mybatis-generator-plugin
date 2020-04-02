@@ -15,8 +15,8 @@ import java.sql.SQLException;
  * @author far.liu
  */
 public class AESCryptTypeHandler implements TypeHandler<String> {
-    private static final String ENCRYPT_KEY = "generator.enc.db.aeskey";
-    private static final String ENCRYPT_E = "generator.enc.db.aese";
+    private static final String ENCRYPT_KEY = PropertyUtil.Param.Enc.ENCRYPT_KEY;
+    private static final String ENCRYPT_E = PropertyUtil.Param.Enc.ENCRYPT_E;
 
     @Override
     public void setParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
