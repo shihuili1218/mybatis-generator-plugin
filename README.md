@@ -50,20 +50,20 @@ pom.xml中对mybatis-generator-maven-plugin插件添加依赖
 ```
 generatorConfig.xml中添加plugin、或者在对应的列加上typeHandler，具体请参照resources下的generatorConfig文件
 ```
-<plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
+<plugin type="ExtXMLPlugin"/>
 
 <table tableName="enc_test" domainObjectName="EncTest" enableCountByExample="false"
        enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
        selectByExampleQueryId="false">
-    <columnOverride column="CERT_NO" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
-    <columnOverride column="MOBILE_PHONE" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
+    <columnOverride column="CERT_NO" javaType="String" jdbcType="VARCHAR" typeHandler="AESCryptTypeHandler"/>
+    <columnOverride column="MOBILE_PHONE" javaType="String" jdbcType="VARCHAR" typeHandler="AESCryptTypeHandler"/>
 </table>
 ```
 
 ### 插件使用方式
 在generatorConfig.xml中添加对应plgin，就可以生效
 ```
-<plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
+<plugin type="ExtXMLPlugin"/>
 ```
 
 ### 数据库加密使用方式
@@ -80,8 +80,8 @@ generatorConfig.xml中添加plugin、或者在对应的列加上typeHandler，�
     <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
     <result column="MODIFY_AT" jdbcType="TIMESTAMP" property="modifyAt" />
     <result column="MODIFY_BY" jdbcType="VARCHAR" property="modifyBy" />
-    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler" />
-    <result column="MOBILE_PHONE" jdbcType="VARCHAR" property="mobilePhone" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" typeHandler="AESCryptTypeHandler" />
+    <result column="MOBILE_PHONE" jdbcType="VARCHAR" property="mobilePhone" typeHandler="AESCryptTypeHandler" />
 </resultMap>
 ```
 在插入时，对参数名指定，
@@ -92,8 +92,8 @@ generatorConfig.xml中添加plugin、或者在对应的列加上typeHandler，�
       MOBILE_PHONE
       )
     values (#{id,jdbcType=BIGINT}, #{createAt,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
-      #{modifyAt,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR,typeHandler=club.usql.mybatis.generator.handler.AESCryptTypeHandler}, 
-      #{mobilePhone,jdbcType=VARCHAR,typeHandler=club.usql.mybatis.generator.handler.AESCryptTypeHandler}
+      #{modifyAt,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR,typeHandler=AESCryptTypeHandler}, 
+      #{mobilePhone,jdbcType=VARCHAR,typeHandler=AESCryptTypeHandler}
       )
   </insert>
 ```
@@ -103,8 +103,8 @@ generatorConfig.xml中添加plugin、或者在对应的列加上typeHandler，�
 <table tableName="enc_test" domainObjectName="EncTest" enableCountByExample="false"
        enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
        selectByExampleQueryId="false">
-    <columnOverride column="CERT_NO" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
-    <columnOverride column="MOBILE_PHONE" javaType="String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler"/>
+    <columnOverride column="CERT_NO" javaType="String" jdbcType="VARCHAR" typeHandler="AESCryptTypeHandler"/>
+    <columnOverride column="MOBILE_PHONE" javaType="String" jdbcType="VARCHAR" typeHandler="AESCryptTypeHandler"/>
 </table>
 ```
 2. 你可以使用AESString，那么不用指定列，mybatis会自动扫描这个类型的字段进行加密解密，如下
@@ -112,8 +112,8 @@ generatorConfig.xml中添加plugin、或者在对应的列加上typeHandler，�
 <table tableName="enc_test" domainObjectName="EncTest" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-    <columnOverride column="CERT_NO" javaType="club.usql.mybatis.generator.type.AESString" jdbcType="VARCHAR" />
-    <columnOverride column="MOBILE_PHONE" javaType="club.usql.mybatis.generator.type.AESString" jdbcType="VARCHAR" />
+    <columnOverride column="CERT_NO" javaType="AESString" jdbcType="VARCHAR" />
+    <columnOverride column="MOBILE_PHONE" javaType="AESString" jdbcType="VARCHAR" />
 </table>
 ```
 不过，还需要在应用配置application.yml中配置typeHandler

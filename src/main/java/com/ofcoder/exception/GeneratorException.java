@@ -1,4 +1,4 @@
-package club.usql.exception;
+package com.ofcoder.exception;
 
 /**
  * @author far.liu

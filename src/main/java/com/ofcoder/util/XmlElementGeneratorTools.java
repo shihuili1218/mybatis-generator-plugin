@@ -1,4 +1,4 @@
-package club.usql.util;
+package com.ofcoder.util;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

@@ -1,6 +1,6 @@
-package club.usql.util;
+package com.ofcoder.util;
 
-import club.usql.exception.EncryptException;
+import com.ofcoder.exception.EncryptException;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

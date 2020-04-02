@@ -1,6 +1,6 @@
-package club.usql.mybatis.generator.plugin;
+package com.ofcoder.mybatis.generator.plugin;
 
-import club.usql.util.XmlElementGeneratorTools;
+import com.ofcoder.util.XmlElementGeneratorTools;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -22,8 +22,6 @@ import org.mybatis.generator.config.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author: yuanyuan.liu

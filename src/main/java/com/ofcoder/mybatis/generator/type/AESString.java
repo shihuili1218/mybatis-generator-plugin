@@ -1,4 +1,4 @@
-package club.usql.mybatis.generator.type;
+package com.ofcoder.mybatis.generator.type;
 
 import java.io.Serializable;
 

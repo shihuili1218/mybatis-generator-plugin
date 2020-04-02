@@ -11,7 +11,7 @@
 
 
         <!-- 配置插件 -->
-        <plugin type="club.usql.mybatis.generator.plugin.ExtXMLPlugin"/>
+        <plugin type="com.ofcoder.mybatis.generator.plugin.ExtXMLPlugin"/>
 
         <commentGenerator>
             <property name="suppressDate" value="true"/>
@@ -28,20 +28,20 @@
         </javaTypeResolver>
 
         <!-- 配置model生成位置 -->
-        <javaModelGenerator targetPackage="com.dao.model"
+        <javaModelGenerator targetPackage="com.ofcoder.dao.model"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 配置sqlmap生成位置 -->
-        <sqlMapGenerator targetPackage="com.dao.mapper"
+        <sqlMapGenerator targetPackage="com.ofcoder.dao.mapper"
                          targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- 配置mapper接口生成位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dao.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ofcoder.dao.mapper"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
@@ -54,8 +54,8 @@
             <!--<columnOverride column="ID" property="id" javaType="Long" jdbcType="BIGINT"/>-->
             <!--<columnOverride column="gmt_create" property="gmtCreate" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
             <!--<columnOverride column="gmt_modified" property="gmtModified" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
-            <columnOverride column="GUARDIAN_CERT_NO" property="guardianCertNo" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler" />
-            <columnOverride column="GUARDIAN_PHONE" property="guardianPhone" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="club.usql.mybatis.generator.handler.AESCryptTypeHandler" />
+            <columnOverride column="GUARDIAN_CERT_NO" property="guardianCertNo" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="com.ofcoder.mybatis.generator.handler.AESCryptTypeHandler" />
+            <columnOverride column="GUARDIAN_PHONE" property="guardianPhone" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="com.ofcoder.mybatis.generator.handler.AESCryptTypeHandler" />
         </table>
     </context>
 </generatorConfiguration>

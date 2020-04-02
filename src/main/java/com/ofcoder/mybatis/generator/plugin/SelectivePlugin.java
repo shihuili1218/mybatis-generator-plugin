@@ -1,4 +1,4 @@
-package club.usql.mybatis.generator.plugin;
+package com.ofcoder.mybatis.generator.plugin;
 
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedTable;

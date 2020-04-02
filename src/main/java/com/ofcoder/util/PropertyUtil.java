@@ -1,6 +1,6 @@
-package club.usql.util;
+package com.ofcoder.util;
 
-import club.usql.exception.GeneratorException;
+import com.ofcoder.exception.GeneratorException;
 
 import java.io.IOException;
 import java.io.InputStream;
