@@ -56,6 +56,7 @@
             <!--<columnOverride column="gmt_modified" property="gmtModified" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
             <columnOverride column="GUARDIAN_CERT_NO" property="guardianCertNo" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="com.ofcoder.mybatis.generator.handler.AESCryptTypeHandler" />
             <columnOverride column="GUARDIAN_PHONE" property="guardianPhone" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="com.ofcoder.mybatis.generator.handler.AESCryptTypeHandler" />
+            <property name="" value=""/>
         </table>
     </context>
 </generatorConfiguration>

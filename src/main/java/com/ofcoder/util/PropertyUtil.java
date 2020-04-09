@@ -37,16 +37,16 @@ public class PropertyUtil {
     }
 
     public static class Param {
-        public static String PREFIX = "generator.";
+        private static String PREFIX = "generator.";
 
         public static class Enc {
-            public static String PREFIX = Param.PREFIX + "enc.db.";
+            private static String PREFIX = Param.PREFIX + "enc.db.";
             public static String ENCRYPT_KEY = PREFIX + "aeskey";
             public static String ENCRYPT_E = PREFIX + "aese";
         }
 
         public static class Assist {
-            public static String PREFIX = Param.PREFIX + "assist.";
+            private static String PREFIX = Param.PREFIX + "assist.append";
             public static String WHERE = PREFIX + "where";
         }
 
