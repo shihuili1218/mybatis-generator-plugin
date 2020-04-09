@@ -13,7 +13,7 @@ import java.util.List;
  * @author: yuanyuan.liu
  * @date: 2020/4/2 14:29
  */
-public class WherePlugin extends PluginAdapter {
+public class AssistPlugin extends PluginAdapter {
     private static final String ASSIST_WHERE = PropertyUtil.Param.Assist.WHERE;
 
     @Override
