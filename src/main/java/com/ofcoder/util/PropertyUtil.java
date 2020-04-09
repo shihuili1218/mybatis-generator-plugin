@@ -46,7 +46,7 @@ public class PropertyUtil {
         }
 
         public static class Assist {
-            private static String PREFIX = Param.PREFIX + "assist.append";
+            private static String PREFIX = Param.PREFIX + "assist.append.";
             public static String WHERE = PREFIX + "where";
         }
 
