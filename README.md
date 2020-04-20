@@ -2,7 +2,7 @@
 
 ## 已增强的功能
 0. 敏感信息自动加密（参考：AESCryptTypeHandler）
-1. 多生成一个以Ext结尾的Mapper类和xml文件，用于写生成的sql以外的sql语句。这两个文件不会因为重新生成而覆盖（参考：ExtXMLPlugin）
+1. 多生成一个以Ext结尾的Mapper类和xml文件，用于写生成的sql以外的sql语句。Ext文件不会因为重新生成而覆盖（参考：ExtXMLPlugin）
 2. 增加batchInsert方法，批量插入。（参考：BatchInsertPlugin）
 3. 增加where语句增强，用于在where条件后追加类似：is_deleted='n'的语句（参考：AssistPlugin）
 4. insert和insertSelective方法添加`useGeneratedKeys="true" keyProperty="id"`
